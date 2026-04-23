@@ -22,7 +22,7 @@ Mobile-first private finance tracker for one esthetician.
 ## Environment Variables
 
 ```bash
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_URL=https://eawkbptidbmubtccrbfa.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 ```
 
