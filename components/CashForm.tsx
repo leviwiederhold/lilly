@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { currency, today } from "@/lib/format";
 
 export function CashForm() {
+  const router = useRouter();
   const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
   const [starting, setStarting] = useState("");
@@ -33,6 +35,7 @@ export function CashForm() {
     setEarned("");
     setSpent("");
     setStatus("Cash log saved.");
+    router.refresh();
   }
 
   const ending = Number(starting || 0) + Number(earned || 0) - Number(spent || 0);
