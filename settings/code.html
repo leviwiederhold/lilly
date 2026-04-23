@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#4c6358",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface": "#fdf8f5",
+                        "on-tertiary-fixed-variant": "#474745",
+                        "surface-container-low": "#f7f3f0",
+                        "surface-container-highest": "#e6e2df",
+                        "secondary-fixed-dim": "#cfc5b9",
+                        "surface-bright": "#fdf8f5",
+                        "on-surface-variant": "#424844",
+                        "primary": "#4c6358",
+                        "on-primary": "#ffffff",
+                        "background": "#fdf8f5",
+                        "on-primary-fixed": "#092017",
+                        "on-primary-container": "#273d33",
+                        "surface-container": "#f1edea",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1c1b1a",
+                        "tertiary-container": "#a3a2a0",
+                        "on-tertiary-container": "#383937",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "primary-container": "#8fa89b",
+                        "inverse-surface": "#31302e",
+                        "inverse-primary": "#b3ccbf",
+                        "primary-fixed": "#cee9da",
+                        "tertiary-fixed-dim": "#c8c6c4",
+                        "outline-variant": "#c2c8c3",
+                        "primary-fixed-dim": "#b3ccbf",
+                        "tertiary": "#5e5e5c",
+                        "on-secondary-fixed-variant": "#4c463c",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#354c41",
+                        "inverse-on-surface": "#f4f0ed",
+                        "on-secondary-fixed": "#1f1b13",
+                        "on-tertiary-fixed": "#1b1c1a",
+                        "surface-container-high": "#ece7e4",
+                        "on-background": "#1c1b1a",
+                        "secondary-fixed": "#ebe1d4",
+                        "secondary": "#645d53",
+                        "on-secondary-container": "#686257",
+                        "surface-variant": "#e6e2df",
+                        "tertiary-fixed": "#e4e2df",
+                        "outline": "#727974",
+                        "surface-dim": "#ddd9d6",
+                        "secondary-container": "#e8ded1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "container-padding": "24px",
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "gutter": "16px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "label-caps": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#F9F7F4] font-body-md text-on-background min-h-screen pb-24">
+<!-- TopAppBar Component -->
+<nav class="sticky top-0 z-50 bg-[#F9F7F4] border-b border-stone-200/60 flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-stone-200" data-alt="Close-up portrait of a professional esthetician with soft natural lighting and a minimalist white spa background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgszBWIWWCiENaWZ263v_3L0bjsb6xYFC9HqII4yrx2A8rWtVyb5qLKXSQGdmp_3JpPLt3hVjYjG7J6Ky5oUW5TcuklqrTBQ5iiMIz-GTkcFSYB4KCea7UzvDJU4qxvZpVl4-OVzFvqFPa3-LNmCWXwgprvNctyPixgaXKgh7W4jwLACT8GipIKCatbK-pHmLxAMsYDZs3WGm8O0KkatcD2RLKDpLSNpOlZebBaXvZxNWLyIo5crtOJQweOyuxRkSyUr32RvHnfk8"/>
+<span class="font-headline-sm text-stone-900 tracking-tight">Studio Balance</span>
+</div>
+<button class="text-stone-400 hover:bg-stone-100 transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</nav>
+<main class="max-w-md mx-auto px-container-padding py-stack-lg">
+<!-- Profile Header Section -->
+<header class="mb-stack-lg">
+<h1 class="font-headline-lg text-on-surface mb-unit">Settings</h1>
+<p class="font-body-md text-tertiary">Manage your business profile and financial preferences.</p>
+</header>
+<!-- Profile Card -->
+<section class="bg-white rounded-xl shadow-[0_4px_20px_rgba(94,92,90,0.06)] p-stack-md mb-stack-lg border border-stone-100/50">
+<div class="flex items-center gap-gutter">
+<div class="relative">
+<img alt="Business Logo" class="w-16 h-16 rounded-xl object-cover shadow-sm" data-alt="Elegant minimalist spa logo on a textured cream paper background with soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDom3T4mNsRs6PQ4YrJOi4HuxEmu1aP8o9YRh9ADu9IDckEu4jRUS4r4RGX4-NL0tQh5mfX5kbUo7LUM_MB2T7NDMyqp7I1FCSI9-dWsLqck--mHuXR40ZLHKVxMymQzsdz1ZepNXQ90RyKa6WEiR1v1S5SHRNMN8KMiusuJd0J9Hva3zzjpuVbxsSlxbYLW3IVdGlfGzhWvdhaYKLtkfhRg8sVYDzdza2VzFSGEl_2xJ7b_b3FsecNOBp9fJgcrh2c8mxhV4E3fXI"/>
+<button class="absolute -bottom-1 -right-1 bg-primary text-white p-1 rounded-full border-2 border-white">
+<span class="material-symbols-outlined text-[14px]" data-icon="edit">edit</span>
+</button>
+</div>
+<div>
+<h2 class="font-headline-sm text-on-surface">Elena Vance</h2>
+<p class="font-body-md text-tertiary">Studio Balance Esthetics</p>
+<span class="inline-block mt-2 font-label-caps text-primary bg-primary-container/20 px-2 py-1 rounded-full">Pro Member</span>
+</div>
+</div>
+</section>
+<!-- Financial Settings Grid -->
+<div class="space-y-stack-md">
+<!-- Tax Estimation Section -->
+<div class="bg-white rounded-xl shadow-[0_4px_20px_rgba(94,92,90,0.06)] overflow-hidden">
+<div class="p-stack-md border-b border-stone-100/50">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary" data-icon="account_balance_wallet">account_balance_wallet</span>
+<h3 class="font-headline-sm text-on-surface">Tax Settings</h3>
+</div>
+<p class="font-body-md text-tertiary text-sm">Automatically set aside funds for quarterly tax payments.</p>
+</div>
+<div class="p-stack-md bg-surface-container-low">
+<div class="flex justify-between items-center mb-stack-sm">
+<label class="font-label-caps text-on-surface-variant">Tax Estimate %</label>
+<span class="font-headline-sm text-primary">25%</span>
+</div>
+<input class="w-full h-1.5 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-primary" max="50" min="0" type="range" value="25"/>
+</div>
+</div>
+<!-- Default Expense Categories Section -->
+<div class="bg-white rounded-xl shadow-[0_4px_20px_rgba(94,92,90,0.06)] p-stack-md">
+<div class="flex justify-between items-center mb-stack-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="category">category</span>
+<h3 class="font-headline-sm text-on-surface">Default Categories</h3>
+</div>
+<button class="text-primary font-label-caps hover:underline">Edit</button>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 bg-surface-container rounded-full font-body-md text-on-surface flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Supplies
+                    </span>
+<span class="px-3 py-1.5 bg-surface-container rounded-full font-body-md text-on-surface flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span> Rent/Booth
+                    </span>
+<span class="px-3 py-1.5 bg-surface-container rounded-full font-body-md text-on-surface flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-surface-tint"></span> Marketing
+                    </span>
+<span class="px-3 py-1.5 border border-stone-200 border-dashed rounded-full font-body-md text-tertiary flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span> New
+                    </span>
+</div>
+</div>
+<!-- Data Export Options Section -->
+<div class="bg-white rounded-xl shadow-[0_4px_20px_rgba(94,92,90,0.06)] p-stack-md">
+<div class="flex items-center gap-2 mb-stack-md">
+<span class="material-symbols-outlined text-primary" data-icon="file_download">file_download</span>
+<h3 class="font-headline-sm text-on-surface">Data Export</h3>
+</div>
+<div class="space-y-3">
+<button class="w-full flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-stone-100 transition-colors group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary group-hover:text-primary" data-icon="receipt_long">receipt_long</span>
+<div class="text-left">
+<p class="font-body-md text-on-surface font-medium">Tax Summary (CSV)</p>
+<p class="text-[12px] text-tertiary">Ideal for Excel or Numbers</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-stone-300" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-stone-100 transition-colors group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary group-hover:text-primary" data-icon="picture_as_pdf">picture_as_pdf</span>
+<div class="text-left">
+<p class="font-body-md text-on-surface font-medium">Full Financial Report (PDF)</p>
+<p class="text-[12px] text-tertiary">Professional formatted overview</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-stone-300" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Danger Zone/System -->
+<div class="pt-stack-md">
+<button class="w-full py-4 text-error font-headline-sm flex items-center justify-center gap-2 hover:bg-error-container/10 transition-colors rounded-xl">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                    Sign Out
+                </button>
+<p class="text-center text-[11px] text-tertiary mt-stack-sm tracking-widest uppercase">Version 2.4.0 • Studio Balance</p>
+</div>
+</div>
+</main>
+<!-- BottomNavBar Component -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-white/80 backdrop-blur-md shadow-[0_-4px_20px_rgba(94,92,90,0.06)] border-t border-stone-100/50">
+<a class="flex flex-col items-center justify-center text-stone-300 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-300 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-300 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-300 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary scale-110 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+</a>
+</nav>
+</body></html>

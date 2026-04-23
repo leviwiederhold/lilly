@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add Expense - Studio Balance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#4c6358",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface": "#fdf8f5",
+                        "on-tertiary-fixed-variant": "#474745",
+                        "surface-container-low": "#f7f3f0",
+                        "surface-container-highest": "#e6e2df",
+                        "secondary-fixed-dim": "#cfc5b9",
+                        "surface-bright": "#fdf8f5",
+                        "on-surface-variant": "#424844",
+                        "primary": "#4c6358",
+                        "on-primary": "#ffffff",
+                        "background": "#fdf8f5",
+                        "on-primary-fixed": "#092017",
+                        "on-primary-container": "#273d33",
+                        "surface-container": "#f1edea",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1c1b1a",
+                        "tertiary-container": "#a3a2a0",
+                        "on-tertiary-container": "#383937",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "primary-container": "#8fa89b",
+                        "inverse-surface": "#31302e",
+                        "inverse-primary": "#b3ccbf",
+                        "primary-fixed": "#cee9da",
+                        "tertiary-fixed-dim": "#c8c6c4",
+                        "outline-variant": "#c2c8c3",
+                        "primary-fixed-dim": "#b3ccbf",
+                        "tertiary": "#5e5e5c",
+                        "on-secondary-fixed-variant": "#4c463c",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#354c41",
+                        "inverse-on-surface": "#f4f0ed",
+                        "on-secondary-fixed": "#1f1b13",
+                        "on-tertiary-fixed": "#1b1c1a",
+                        "surface-container-high": "#ece7e4",
+                        "on-background": "#1c1b1a",
+                        "secondary-fixed": "#ebe1d4",
+                        "secondary": "#645d53",
+                        "on-secondary-container": "#686257",
+                        "surface-variant": "#e6e2df",
+                        "tertiary-fixed": "#e4e2df",
+                        "outline": "#727974",
+                        "surface-dim": "#ddd9d6",
+                        "secondary-container": "#e8ded1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "container-padding": "24px",
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "gutter": "16px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "label-caps": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .receipt-upload-dashed {
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%238FA89B' stroke-width='2' stroke-dasharray='8%2c 12' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+            border-radius: 12px;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #8FA89B !important;
+            --tw-ring-color: transparent !important;
+        }
+        .form-card {
+            box-shadow: 0px 4px 20px rgba(94, 92, 90, 0.06);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-[#F9F7F4] dark:bg-stone-950 flex justify-between items-center w-full px-6 py-4 fixed top-0 z-50 border-b border-stone-200/60 dark:border-stone-800">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional portrait of a solo esthetician with a calm and welcoming expression in a bright studio environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGpSHnZuEGofBuiGpxO7t1brcxrzw0trmYUiRz7bF2XmLWz0gt5edINeAyTHh0sDCEzPvWdU9ggBEL7grulV3PaGiWovqpflGvw6M9Ul3s8qbq7V8wD1VsIXLz6lp85ZrHBA7miDD7F_Q2jcgp-XrWOALIB8p5dZUTHPE12CC9-9gex-6Xbl3NOpKMt8KnImjEEweZwQ2ApLxV2ydMWM7gZH-WZApWeslaPXN5_eLcgjT-gf3PwQBFGNAvuQ4HBCoC_vZgKAirzE4"/>
+</div>
+</div>
+<h1 class="text-lg font-semibold text-stone-900 dark:text-white font-headline-sm">Studio Balance</h1>
+<button class="text-stone-400 hover:bg-stone-100 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<main class="pt-24 pb-32 px-container-padding max-w-lg mx-auto">
+<!-- Header Section -->
+<section class="mb-stack-lg">
+<div class="flex items-center gap-2 mb-2">
+<button class="text-primary hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h2 class="font-headline-md text-headline-md text-on-surface">New Expense</h2>
+</div>
+<p class="text-on-surface-variant text-body-md">Log your business spending to stay organized.</p>
+</section>
+<!-- Form Section -->
+<form class="space-y-gutter">
+<div class="bg-surface-container-lowest rounded-xl p-stack-md form-card space-y-gutter">
+<!-- Amount Field (Hero Position) -->
+<div class="relative pt-2">
+<span class="absolute left-0 top-1/2 -translate-y-1/2 font-headline-lg text-headline-lg text-primary ml-4">$</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-6 font-headline-lg text-headline-lg text-on-surface placeholder:text-stone-300" placeholder="0.00" step="0.01" type="number"/>
+<label class="absolute left-10 top-2 font-label-caps text-label-caps text-on-surface-variant">TOTAL AMOUNT</label>
+</div>
+<!-- Basic Details Grid -->
+<div class="grid grid-cols-1 gap-gutter">
+<div class="relative">
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-1 ml-1">DATE</label>
+<div class="flex items-center bg-surface-container-low rounded-lg px-4 py-3">
+<span class="material-symbols-outlined text-primary text-sm mr-2" data-icon="calendar_today">calendar_today</span>
+<input class="bg-transparent border-none w-full p-0 font-body-md text-on-surface" type="date" value="2023-10-27"/>
+</div>
+</div>
+<div class="relative">
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-1 ml-1">VENDOR</label>
+<div class="flex items-center bg-surface-container-low rounded-lg px-4 py-3">
+<span class="material-symbols-outlined text-primary text-sm mr-2" data-icon="storefront">storefront</span>
+<input class="bg-transparent border-none w-full p-0 font-body-md text-on-surface placeholder:text-stone-400" placeholder="e.g. SkinCeuticals or Landlord" type="text"/>
+</div>
+</div>
+</div>
+<!-- Category & Payment -->
+<div class="grid grid-cols-2 gap-stack-md">
+<div class="relative">
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-1 ml-1">CATEGORY</label>
+<div class="flex items-center bg-surface-container-low rounded-lg px-4 py-3">
+<select class="bg-transparent border-none w-full p-0 font-body-md text-on-surface appearance-none">
+<option>Supplies</option>
+<option>Rent</option>
+<option>Marketing</option>
+<option>Education</option>
+<option>Insurance</option>
+<option>Other</option>
+</select>
+</div>
+</div>
+<div class="relative">
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-1 ml-1">PAYMENT</label>
+<div class="flex items-center bg-surface-container-low rounded-lg px-4 py-3">
+<select class="bg-transparent border-none w-full p-0 font-body-md text-on-surface appearance-none">
+<option>Debit Card</option>
+<option>Credit Card</option>
+<option>Cash</option>
+<option>Bank Transfer</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Business Use % -->
+<div class="relative">
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-1 ml-1">BUSINESS USE %</label>
+<div class="flex items-center bg-surface-container-low rounded-lg px-4 py-3">
+<span class="material-symbols-outlined text-primary text-sm mr-2" data-icon="percent">percent</span>
+<input class="bg-transparent border-none w-full p-0 font-body-md text-on-surface" type="number" value="100"/>
+</div>
+<p class="text-[10px] text-stone-400 mt-1 ml-1 italic">Percentage deductible for business tax purposes.</p>
+</div>
+<!-- Description -->
+<div class="relative">
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-1 ml-1">DESCRIPTION (OPTIONAL)</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-lg px-4 py-3 font-body-md text-on-surface placeholder:text-stone-400 resize-none" placeholder="Note about this expense..." rows="2"></textarea>
+</div>
+<!-- Receipt Upload -->
+<div class="pt-2">
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-2 ml-1">RECEIPT</label>
+<div class="receipt-upload-dashed bg-surface p-6 flex flex-col items-center justify-center gap-2 cursor-pointer hover:bg-surface-container-low transition-colors group">
+<span class="material-symbols-outlined text-primary-container text-3xl group-hover:scale-110 transition-transform" data-icon="add_a_photo">add_a_photo</span>
+<span class="text-body-md font-medium text-primary">Upload or Snap Photo</span>
+<span class="text-[11px] text-stone-400">PDF, JPG or PNG up to 10MB</span>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="pt-stack-md">
+<button class="w-full bg-primary hover:opacity-90 text-white font-headline-sm py-4 rounded-xl shadow-md transition-all active:scale-[0.98]" type="submit">
+                    Save Expense
+                </button>
+<button class="w-full mt-4 text-on-surface-variant font-medium py-2 hover:text-primary transition-colors text-body-md" type="button">
+                    Discard Draft
+                </button>
+</div>
+</form>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-white/80 dark:bg-stone-900/90 backdrop-blur-md fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 shadow-[0_-4px_20px_rgba(94,92,90,0.06)] border-t border-stone-100 dark:border-stone-800 pb-safe">
+<div class="flex flex-col items-center justify-center text-stone-300 dark:text-stone-600 transition-all">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#8FA89B] dark:text-[#A7BCB1] scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="add_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-300 dark:text-stone-600 transition-all">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-300 dark:text-stone-600 transition-all">
+<span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-300 dark:text-stone-600 transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</div>
+</nav>
+</body></html>
