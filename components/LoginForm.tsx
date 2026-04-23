@@ -45,13 +45,13 @@ export function LoginForm() {
       <label className="block">
         <span className="mb-2 block text-xs font-semibold tracking-wide text-on-surface-variant">EMAIL ADDRESS</span>
         <span className="relative flex items-center">
-          <Icon name="mail" className="absolute left-4 text-lg text-tertiary" />
+          <Icon name="mail" className="absolute left-4 h-4 w-4 text-tertiary" />
           <input
             required
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-            className="w-full rounded-lg border-0 bg-surface-container-low py-4 pl-12 pr-4 text-sm focus:ring-1 focus:ring-primary-container"
+            className="w-full rounded-lg border border-transparent bg-surface-container-low py-4 pl-12 pr-4 text-sm transition focus:border-primary-container focus:ring-2 focus:ring-primary-container/30"
             placeholder="hello@yourstudio.com"
           />
         </span>
@@ -59,14 +59,14 @@ export function LoginForm() {
       <label className="block">
         <span className="mb-2 block text-xs font-semibold tracking-wide text-on-surface-variant">PASSWORD</span>
         <span className="relative flex items-center">
-          <Icon name="lock" className="absolute left-4 text-lg text-tertiary" />
+          <Icon name="lock" className="absolute left-4 h-4 w-4 text-tertiary" />
           <input
             required
             minLength={6}
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
-            className="w-full rounded-lg border-0 bg-surface-container-low py-4 pl-12 pr-4 text-sm focus:ring-1 focus:ring-primary-container"
+            className="w-full rounded-lg border border-transparent bg-surface-container-low py-4 pl-12 pr-4 text-sm transition focus:border-primary-container focus:ring-2 focus:ring-primary-container/30"
             placeholder="••••••••"
           />
         </span>

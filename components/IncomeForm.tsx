@@ -10,6 +10,7 @@ export function IncomeForm() {
   const [loading, setLoading] = useState(false);
   const [amount, setAmount] = useState("");
   const [tip, setTip] = useState("");
+  const inputClass = "w-full rounded-lg border border-transparent bg-surface-container-low p-3 transition focus:border-primary-container focus:ring-2 focus:ring-primary-container/30";
 
   async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -42,31 +43,31 @@ export function IncomeForm() {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <label className="space-y-1">
           <span className="text-xs font-semibold tracking-wide text-tertiary">DATE</span>
-          <input name="date" type="date" defaultValue={today()} required className="w-full rounded-lg border-0 bg-surface-container-low p-3" />
+          <input name="date" type="date" defaultValue={today()} required className={inputClass} />
         </label>
         <label className="space-y-1">
           <span className="text-xs font-semibold tracking-wide text-tertiary">CLIENT NAME</span>
-          <input name="client_name" required placeholder="Sarah Johnson" className="w-full rounded-lg border-0 bg-surface-container-low p-3" />
+          <input name="client_name" required placeholder="Client name" className={inputClass} />
         </label>
       </div>
       <label className="space-y-1 block">
         <span className="text-xs font-semibold tracking-wide text-tertiary">SERVICE</span>
-        <input name="service" required placeholder="Signature HydraFacial" className="w-full rounded-lg border-0 bg-surface-container-low p-3" />
+        <input name="service" required placeholder="Service performed" className={inputClass} />
       </label>
       <label className="space-y-1 block">
         <span className="text-xs font-semibold tracking-wide text-tertiary">PAYMENT METHOD</span>
-        <select name="payment_type" className="w-full rounded-lg border-0 bg-surface-container-low p-3">
+        <select name="payment_type" className={inputClass}>
           {paymentTypes.map((type) => <option key={type}>{type}</option>)}
         </select>
       </label>
       <div className="grid grid-cols-2 gap-4">
         <label className="space-y-1">
           <span className="text-xs font-semibold tracking-wide text-tertiary">SERVICE AMOUNT</span>
-          <input name="amount" type="number" min="0" step="0.01" required value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="150.00" className="w-full rounded-lg border-0 bg-surface-container-low p-3" />
+          <input name="amount" type="number" min="0" step="0.01" required value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="0.00" className={inputClass} />
         </label>
         <label className="space-y-1">
           <span className="text-xs font-semibold tracking-wide text-tertiary">TIP</span>
-          <input name="tip" type="number" min="0" step="0.01" value={tip} onChange={(e) => setTip(e.target.value)} placeholder="30.00" className="w-full rounded-lg border-0 bg-surface-container-low p-3" />
+          <input name="tip" type="number" min="0" step="0.01" value={tip} onChange={(e) => setTip(e.target.value)} placeholder="0.00" className={inputClass} />
         </label>
       </div>
       <div className="border-t border-stone-100 pt-5">

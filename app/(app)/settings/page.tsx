@@ -21,7 +21,7 @@ export default async function SettingsPage() {
       <section className="soft-shadow mb-8 rounded-xl border border-stone-100/50 bg-white p-4">
         <div className="flex items-center gap-4">
           <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-secondary-container">
-            <Icon name="spa" className="text-primary" />
+            <Icon name="spa" className="h-7 w-7 text-primary" />
           </div>
           <div>
             <h2 className="text-xl font-semibold">{businessName}</h2>
@@ -33,11 +33,11 @@ export default async function SettingsPage() {
         <h2 className="text-xl font-semibold">Tax Settings</h2>
         <label className="block space-y-1">
           <span className="text-xs font-semibold tracking-wide text-tertiary">BUSINESS NAME</span>
-          <input name="business_name" defaultValue={businessName} required className="w-full rounded-lg border-0 bg-surface-container-low p-3" />
+          <input name="business_name" defaultValue={businessName} required className="w-full rounded-lg border border-transparent bg-surface-container-low p-3 transition focus:border-primary-container focus:ring-2 focus:ring-primary-container/30" />
         </label>
         <label className="block space-y-1">
           <span className="text-xs font-semibold tracking-wide text-tertiary">TAX ESTIMATE %</span>
-          <input name="tax_rate" type="number" min="0" max="100" step="1" defaultValue={taxRate} required className="w-full rounded-lg border-0 bg-surface-container-low p-3" />
+          <input name="tax_rate" type="number" min="0" max="100" step="1" defaultValue={taxRate} required className="w-full rounded-lg border border-transparent bg-surface-container-low p-3 transition focus:border-primary-container focus:ring-2 focus:ring-primary-container/30" />
         </label>
         <button className="w-full rounded-lg bg-primary py-3 font-semibold text-white">Save Settings</button>
       </form>

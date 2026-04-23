@@ -9,7 +9,7 @@ export default function LoginPage() {
       <section className="relative z-10 w-full max-w-md">
         <header className="mb-8 text-center">
           <div className="soft-shadow mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white">
-            <Icon name="spa" className="text-3xl text-primary" />
+            <Icon name="spa" className="h-8 w-8 text-primary" />
           </div>
           <h1 className="mb-2 text-3xl font-semibold tracking-tight">Studio Balance</h1>
           <p className="mx-auto max-w-[280px] text-base leading-7 text-tertiary">

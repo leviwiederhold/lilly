@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { headers } from "next/headers";
-import { Icon } from "@/components/Icon";
+import { Icon, type IconName } from "@/components/Icon";
 import { currency } from "@/lib/format";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { currentMonthRange } from "@/lib/finance";
@@ -32,6 +32,22 @@ export default async function DashboardPage() {
 
   const income = (incomeResult.data ?? []) as IncomeRow[];
   const expenses = (expenseResult.data ?? []) as ExpenseRow[];
+  const recentActivity = [
+    ...income.map((row) => ({
+      id: row.id,
+      title: row.service,
+      detail: row.client_name,
+      amount: currency(row.total),
+      positive: true,
+    })),
+    ...expenses.map((row) => ({
+      id: row.id,
+      title: row.vendor,
+      detail: row.category,
+      amount: currency(row.deductible_amount),
+      positive: false,
+    })),
+  ].slice(0, 5);
   const { data: summary } = (await summaryResponse.json()) as {
     data: {
       business_name: string;
@@ -68,38 +84,44 @@ export default async function DashboardPage() {
       <section>
         <h2 className="mb-4 text-xs font-semibold uppercase tracking-wide text-tertiary">Recent Activity</h2>
         <div className="soft-shadow overflow-hidden rounded-xl bg-white">
-          {[...income.map((row) => ({ id: row.id, title: row.service, detail: row.client_name, amount: currency(row.total), positive: true })), ...expenses.map((row) => ({ id: row.id, title: row.vendor, detail: row.category, amount: currency(row.deductible_amount), positive: false }))].slice(0, 5).map((row) => (
-            <div key={row.id} className="flex items-center justify-between border-b border-stone-100 p-4 last:border-0">
-              <div>
-                <p className="font-medium">{row.title}</p>
-                <p className="text-xs text-tertiary">{row.detail}</p>
-              </div>
-              <p className={row.positive ? "font-semibold text-primary" : "font-semibold text-error"}>{row.positive ? "+" : "-"}{row.amount}</p>
+          {recentActivity.length === 0 ? (
+            <div className="p-5 text-sm text-tertiary">
+              No activity yet. Add income, an expense, or a cash log to get started.
             </div>
-          ))}
+          ) : (
+            recentActivity.map((row) => (
+              <div key={row.id} className="flex items-center justify-between border-b border-stone-100 p-4 last:border-0">
+                <div>
+                  <p className="font-medium">{row.title}</p>
+                  <p className="text-xs text-tertiary">{row.detail}</p>
+                </div>
+                <p className={row.positive ? "font-semibold text-primary" : "font-semibold text-error"}>{row.positive ? "+" : "-"}{row.amount}</p>
+              </div>
+            ))
+          )}
         </div>
       </section>
     </>
   );
 }
 
-function SummaryCard({ label, value, icon }: { label: string; value: string; icon: string }) {
+function SummaryCard({ label, value, icon }: { label: string; value: string; icon: IconName }) {
   return (
     <div className="soft-shadow flex h-32 flex-col justify-between rounded-xl bg-white p-4">
       <span className="text-xs font-semibold uppercase tracking-wide text-tertiary">{label}</span>
       <div>
         <p className="text-2xl font-semibold">{value}</p>
-        <Icon name={icon} className="text-sm text-primary" />
+        <Icon name={icon} className="h-4 w-4 text-primary" />
       </div>
     </div>
   );
 }
 
-function QuickAction({ href, icon, label }: { href: string; icon: string; label: string }) {
+function QuickAction({ href, icon, label }: { href: string; icon: IconName; label: string }) {
   return (
     <Link href={href} className="flex flex-col items-center gap-2 rounded-xl border border-secondary-container bg-white p-4 text-center active:opacity-70">
-      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-container/10 text-primary">
-        <Icon name={icon} />
+      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-container/10">
+        <Icon name={icon} className="h-5 w-5 text-primary" />
       </span>
       <span className="text-[10px] font-semibold uppercase">{label}</span>
     </Link>

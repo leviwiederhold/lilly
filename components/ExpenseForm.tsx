@@ -8,6 +8,7 @@ export function ExpenseForm() {
   const [loading, setLoading] = useState(false);
   const [amount, setAmount] = useState("");
   const [businessPercent, setBusinessPercent] = useState("100");
+  const inputClass = "w-full rounded-lg border border-transparent bg-surface-container-low p-3 transition focus:border-primary-container focus:ring-2 focus:ring-primary-container/30";
 
   async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -37,37 +38,37 @@ export function ExpenseForm() {
     <form onSubmit={submit} className="soft-shadow space-y-4 rounded-xl bg-white p-6">
       <label className="block space-y-1">
         <span className="text-xs font-semibold tracking-wide text-tertiary">TOTAL AMOUNT</span>
-        <input name="amount" type="number" min="0" step="0.01" required value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="0.00" className="w-full rounded-lg border-0 bg-surface-container-low p-5 text-3xl font-semibold text-primary" />
+        <input name="amount" type="number" min="0" step="0.01" required value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="0.00" className="w-full rounded-lg border border-transparent bg-surface-container-low p-5 text-3xl font-semibold text-primary transition focus:border-primary-container focus:ring-2 focus:ring-primary-container/30" />
       </label>
       <label className="block space-y-1">
         <span className="text-xs font-semibold tracking-wide text-tertiary">DATE</span>
-        <input name="date" type="date" required defaultValue={today()} className="w-full rounded-lg border-0 bg-surface-container-low p-3" />
+        <input name="date" type="date" required defaultValue={today()} className={inputClass} />
       </label>
       <label className="block space-y-1">
         <span className="text-xs font-semibold tracking-wide text-tertiary">VENDOR</span>
-        <input name="vendor" required placeholder="SkinCeuticals" className="w-full rounded-lg border-0 bg-surface-container-low p-3" />
+        <input name="vendor" required placeholder="Vendor name" className={inputClass} />
       </label>
       <div className="grid grid-cols-2 gap-4">
         <label className="space-y-1">
           <span className="text-xs font-semibold tracking-wide text-tertiary">CATEGORY</span>
-          <select name="category" className="w-full rounded-lg border-0 bg-surface-container-low p-3">
+          <select name="category" className={inputClass}>
             {["Supplies", "Rent", "Marketing", "Education", "Insurance", "Other"].map((item) => <option key={item}>{item}</option>)}
           </select>
         </label>
         <label className="space-y-1">
           <span className="text-xs font-semibold tracking-wide text-tertiary">PAYMENT</span>
-          <select name="payment_method" className="w-full rounded-lg border-0 bg-surface-container-low p-3">
+          <select name="payment_method" className={inputClass}>
             {["Debit Card", "Credit Card", "Cash", "Bank Transfer"].map((item) => <option key={item}>{item}</option>)}
           </select>
         </label>
       </div>
       <label className="block space-y-1">
         <span className="text-xs font-semibold tracking-wide text-tertiary">BUSINESS USE %</span>
-        <input name="business_percent" type="number" min="0" max="100" required value={businessPercent} onChange={(e) => setBusinessPercent(e.target.value)} className="w-full rounded-lg border-0 bg-surface-container-low p-3" />
+        <input name="business_percent" type="number" min="0" max="100" required value={businessPercent} onChange={(e) => setBusinessPercent(e.target.value)} className={inputClass} />
       </label>
       <label className="block space-y-1">
         <span className="text-xs font-semibold tracking-wide text-tertiary">DESCRIPTION</span>
-        <textarea name="description" rows={2} placeholder="Note about this expense..." className="w-full resize-none rounded-lg border-0 bg-surface-container-low p-3" />
+        <textarea name="description" rows={2} placeholder="Optional note" className={`${inputClass} resize-none`} />
       </label>
       <div className="rounded-lg bg-surface-container-low p-4">
         <p className="text-xs font-semibold tracking-wide text-tertiary">DEDUCTIBLE AMOUNT</p>
